@@ -1,10 +1,3 @@
-// import { Component, ViewChild } from '@angular/core';
-// import { IonInput, IonItem, IonList, IonText, IonButton, IonIcon, IonRange, RangeCustomEvent, IonHeader, IonToolbar, IonTitle, IonContent, IonLabel } from '@ionic/angular/standalone';
-// import { FormsModule } from '@angular/forms';
-// import { MaskitoDirective, MaskitoOptions, MaskitoElementPredicate, maskitoTransform } from '@maskito/core';
-// import { addIcons } from 'ionicons';
-// import { eye, lockClosed, snowOutline, sunnyOutline } from 'ionicons/icons';
-
 import { Component, ViewChild } from '@angular/core';
 import { IonInput, IonItem, IonList, IonText, IonButton, IonIcon, IonRange, RangeCustomEvent, IonHeader, IonToolbar, IonTitle, IonContent, IonLabel } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
@@ -34,14 +27,12 @@ import { eye, lockClosed, snowOutline, sunnyOutline } from 'ionicons/icons';
   ],
 })
 export class HomePage {
-  // Variáveis e funções do componente
 
-  // Exemplo de input counter
   customCounterFormatter(inputLength: number, maxLength: number) {
     return `${maxLength - inputLength} characters remaining`;
   }
 
-  // Função de filtragem de caracteres alfanuméricos
+
   inputModel = '';
   @ViewChild('ionInputEl', { static: true }) ionInputEl!: IonInput;
 
@@ -51,7 +42,7 @@ export class HomePage {
     this.ionInputEl.value = this.inputModel = filteredValue;
   }
 
-  // Máscaras de entrada (exemplo de número de telefone)
+
   readonly phoneMask: MaskitoOptions = {
     mask: ['+', '1', ' ', '(', /\d/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/],
   };
@@ -74,12 +65,12 @@ export class HomePage {
   readonly maskPredicate: MaskitoElementPredicate = async (el : HTMLElement) =>
     (el as HTMLIonInputElement).getInputElement();
 
-  // Pin formatter
+
   pinFormatter(value: number) {
     return `${value}%`;
   }
 
-  // Eventos de IonRange
+
   onIonChange(event: RangeCustomEvent) {
     console.log('ionChange emitted value:', event.detail.value);
   }
@@ -92,7 +83,6 @@ export class HomePage {
     console.log('ionKnobMoveEnd:', event.detail.value);
   }
 
-  // Construtor
   constructor() {
     addIcons({ eye, lockClosed, snowOutline, sunnyOutline });
   }
